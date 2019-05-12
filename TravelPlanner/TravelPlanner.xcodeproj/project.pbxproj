@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF63B36C2287FFB300522E43 /* MainAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B36B2287FFB300522E43 /* MainAppViewController.swift */; };
+		DF63B36E2288B5CA00522E43 /* TripCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B36D2288B5CA00522E43 /* TripCreationViewController.swift */; };
+		DF63B3702288BA9100522E43 /* TripStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B36F2288BA9100522E43 /* TripStorage.swift */; };
+		DF63B3722288C1E700522E43 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B3712288C1E700522E43 /* Trip.swift */; };
+		DF63B3742288C90800522E43 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B3732288C90800522E43 /* TripCell.swift */; };
 		DFDD3053227F8C72003F76EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD3052227F8C72003F76EC /* AppDelegate.swift */; };
-		DFDD3055227F8C72003F76EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD3054227F8C72003F76EC /* ViewController.swift */; };
+		DFDD3055227F8C72003F76EC /* TripListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD3054227F8C72003F76EC /* TripListTableViewController.swift */; };
 		DFDD3058227F8C72003F76EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFDD3056227F8C72003F76EC /* Main.storyboard */; };
 		DFDD305A227F8C73003F76EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFDD3059227F8C73003F76EC /* Assets.xcassets */; };
 		DFDD305D227F8C73003F76EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFDD305B227F8C73003F76EC /* LaunchScreen.storyboard */; };
@@ -26,9 +31,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF63B36B2287FFB300522E43 /* MainAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppViewController.swift; sourceTree = "<group>"; };
+		DF63B36D2288B5CA00522E43 /* TripCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCreationViewController.swift; sourceTree = "<group>"; };
+		DF63B36F2288BA9100522E43 /* TripStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripStorage.swift; sourceTree = "<group>"; };
+		DF63B3712288C1E700522E43 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		DF63B3732288C90800522E43 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		DFDD304F227F8C72003F76EC /* TravelPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFDD3052227F8C72003F76EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DFDD3054227F8C72003F76EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DFDD3054227F8C72003F76EC /* TripListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListTableViewController.swift; sourceTree = "<group>"; };
 		DFDD3057227F8C72003F76EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFDD3059227F8C73003F76EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFDD305C227F8C73003F76EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,10 +88,15 @@
 			isa = PBXGroup;
 			children = (
 				DFDD3052227F8C72003F76EC /* AppDelegate.swift */,
-				DFDD3054227F8C72003F76EC /* ViewController.swift */,
+				DFDD3054227F8C72003F76EC /* TripListTableViewController.swift */,
+				DF63B36D2288B5CA00522E43 /* TripCreationViewController.swift */,
+				DF63B3712288C1E700522E43 /* Trip.swift */,
+				DF63B36F2288BA9100522E43 /* TripStorage.swift */,
 				DFDD3056227F8C72003F76EC /* Main.storyboard */,
+				DF63B3732288C90800522E43 /* TripCell.swift */,
 				DFDD3059227F8C73003F76EC /* Assets.xcassets */,
 				DFDD305B227F8C73003F76EC /* LaunchScreen.storyboard */,
+				DF63B36B2287FFB300522E43 /* MainAppViewController.swift */,
 				DFDD305E227F8C73003F76EC /* Info.plist */,
 			);
 			path = TravelPlanner;
@@ -197,8 +212,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFDD3055227F8C72003F76EC /* ViewController.swift in Sources */,
+				DF63B3722288C1E700522E43 /* Trip.swift in Sources */,
+				DF63B36E2288B5CA00522E43 /* TripCreationViewController.swift in Sources */,
+				DFDD3055227F8C72003F76EC /* TripListTableViewController.swift in Sources */,
+				DF63B3702288BA9100522E43 /* TripStorage.swift in Sources */,
+				DF63B36C2287FFB300522E43 /* MainAppViewController.swift in Sources */,
 				DFDD3053227F8C72003F76EC /* AppDelegate.swift in Sources */,
+				DF63B3742288C90800522E43 /* TripCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

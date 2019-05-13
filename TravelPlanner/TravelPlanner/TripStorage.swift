@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//this class store information about trips
 protocol TripStoring {
     var tripArray: [Trip] { get }
     func insert(trip: Trip)

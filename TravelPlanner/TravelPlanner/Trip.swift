@@ -10,7 +10,10 @@ import UIKit
 
 class Trip {
     let title: String
-    init(title: String) {
+    var days: [Day] = []
+    
+    init(title: String, days: [Day]) {
         self.title = title
+        self.days = days
     }
 }

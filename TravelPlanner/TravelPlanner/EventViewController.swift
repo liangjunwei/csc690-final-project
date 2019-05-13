@@ -1,5 +1,5 @@
 //
-//  MainAppViewController.swift
+//  EventViewController.swift
 //  TravelPlanner
 //
 //  Created by Junwei Liang on 5/12/19.
@@ -8,6 +8,6 @@
 
 import UIKit
 //this is the home page
-class MainAppViewController: UIViewController {
+class EventViewController: UIViewController {
     
 }

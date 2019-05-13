@@ -12,6 +12,11 @@
 		DF63B3702288BA9100522E43 /* TripStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B36F2288BA9100522E43 /* TripStorage.swift */; };
 		DF63B3722288C1E700522E43 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B3712288C1E700522E43 /* Trip.swift */; };
 		DF63B3742288C90800522E43 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B3732288C90800522E43 /* TripCell.swift */; };
+		DF63B376228921F600522E43 /* DayListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B375228921F600522E43 /* DayListTableViewController.swift */; };
+		DF63B378228926E900522E43 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B377228926E900522E43 /* Day.swift */; };
+		DF63B37A228938BF00522E43 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B379228938BF00522E43 /* DayCell.swift */; };
+		DF63B37E228944D600522E43 /* EventCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B37D228944D600522E43 /* EventCreationViewController.swift */; };
+		DF63B3802289451A00522E43 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF63B37F2289451A00522E43 /* EventViewController.swift */; };
 		DFDD3053227F8C72003F76EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD3052227F8C72003F76EC /* AppDelegate.swift */; };
 		DFDD3055227F8C72003F76EC /* TripListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD3054227F8C72003F76EC /* TripListTableViewController.swift */; };
 		DFDD3058227F8C72003F76EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFDD3056227F8C72003F76EC /* Main.storyboard */; };
@@ -36,6 +41,11 @@
 		DF63B36F2288BA9100522E43 /* TripStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripStorage.swift; sourceTree = "<group>"; };
 		DF63B3712288C1E700522E43 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		DF63B3732288C90800522E43 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
+		DF63B375228921F600522E43 /* DayListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayListTableViewController.swift; sourceTree = "<group>"; };
+		DF63B377228926E900522E43 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		DF63B379228938BF00522E43 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
+		DF63B37D228944D600522E43 /* EventCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreationViewController.swift; sourceTree = "<group>"; };
+		DF63B37F2289451A00522E43 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		DFDD304F227F8C72003F76EC /* TravelPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFDD3052227F8C72003F76EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFDD3054227F8C72003F76EC /* TripListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListTableViewController.swift; sourceTree = "<group>"; };
@@ -89,14 +99,19 @@
 			children = (
 				DFDD3052227F8C72003F76EC /* AppDelegate.swift */,
 				DFDD3054227F8C72003F76EC /* TripListTableViewController.swift */,
+				DF63B375228921F600522E43 /* DayListTableViewController.swift */,
 				DF63B36D2288B5CA00522E43 /* TripCreationViewController.swift */,
+				DF63B37D228944D600522E43 /* EventCreationViewController.swift */,
 				DF63B3712288C1E700522E43 /* Trip.swift */,
+				DF63B377228926E900522E43 /* Day.swift */,
 				DF63B36F2288BA9100522E43 /* TripStorage.swift */,
 				DFDD3056227F8C72003F76EC /* Main.storyboard */,
-				DF63B3732288C90800522E43 /* TripCell.swift */,
 				DFDD3059227F8C73003F76EC /* Assets.xcassets */,
+				DF63B3732288C90800522E43 /* TripCell.swift */,
+				DF63B379228938BF00522E43 /* DayCell.swift */,
 				DFDD305B227F8C73003F76EC /* LaunchScreen.storyboard */,
 				DF63B36B2287FFB300522E43 /* MainAppViewController.swift */,
+				DF63B37F2289451A00522E43 /* EventViewController.swift */,
 				DFDD305E227F8C73003F76EC /* Info.plist */,
 			);
 			path = TravelPlanner;
@@ -212,12 +227,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF63B376228921F600522E43 /* DayListTableViewController.swift in Sources */,
 				DF63B3722288C1E700522E43 /* Trip.swift in Sources */,
+				DF63B37A228938BF00522E43 /* DayCell.swift in Sources */,
 				DF63B36E2288B5CA00522E43 /* TripCreationViewController.swift in Sources */,
 				DFDD3055227F8C72003F76EC /* TripListTableViewController.swift in Sources */,
+				DF63B3802289451A00522E43 /* EventViewController.swift in Sources */,
 				DF63B3702288BA9100522E43 /* TripStorage.swift in Sources */,
+				DF63B378228926E900522E43 /* Day.swift in Sources */,
 				DF63B36C2287FFB300522E43 /* MainAppViewController.swift in Sources */,
 				DFDD3053227F8C72003F76EC /* AppDelegate.swift in Sources */,
+				DF63B37E228944D600522E43 /* EventCreationViewController.swift in Sources */,
 				DF63B3742288C90800522E43 /* TripCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

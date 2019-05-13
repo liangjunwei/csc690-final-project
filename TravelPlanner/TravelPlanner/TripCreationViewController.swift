@@ -7,23 +7,37 @@
 //
 
 import UIKit
-
+//read the input from text field and create trip when the button is clicked
 class TripCreationViewController: UIViewController {
     
     @IBOutlet weak var tripTitle: UITextField!
+    @IBOutlet weak var tripDays: UITextField!
     
     var tripStorage: TripStoring = TripStorage.shared
+    var daysArray: [Day] = []
     
     @IBAction func createTrip(_ sender: Any) {
         guard
             let title = tripTitle.text,
-            !title.isEmpty
+            !title.isEmpty,
+            let days = tripDays.text,
+            !days.isEmpty,
+            let numOfDays = UInt32(days)
         else {
             return
         }
         
-        let trip = Trip(title: title)
+        for dayindex in 1...numOfDays {
+            let newday = Day(dayNum: dayindex)
+            daysArray.append(newday)
+            print("inserted: \(dayindex)")
+        }
+        
+        print(daysArray[0].dayNum)
+        
+        let trip = Trip(title: title, days: daysArray)
         tripStorage.insert(trip: trip)
+        print("insert everything!")
         dismiss(animated: true, completion: {print("dismissed!")})
     }
     

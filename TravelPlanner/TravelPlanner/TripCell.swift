@@ -10,4 +10,6 @@ import UIKit
 //this class can make custom cell
 class TripCell: UITableViewCell {
     
+    @IBOutlet weak var budgetLabel: UILabel!
+    
 }

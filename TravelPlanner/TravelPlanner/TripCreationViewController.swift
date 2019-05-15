@@ -12,9 +12,13 @@ class TripCreationViewController: UIViewController {
     
     @IBOutlet weak var tripTitle: UITextField!
     @IBOutlet weak var tripDays: UITextField!
+    @IBOutlet weak var tripBudget: UITextField!
+    
+    
     
     var tripStorage: TripStoring = TripStorage.shared
     var daysArray: [Day] = []
+    var eventsArray: [Event] = []
     
     @IBAction func createTrip(_ sender: Any) {
         guard
@@ -22,20 +26,23 @@ class TripCreationViewController: UIViewController {
             !title.isEmpty,
             let days = tripDays.text,
             !days.isEmpty,
-            let numOfDays = UInt32(days)
+            let numOfDays = UInt32(days),
+            let budget = tripBudget.text,
+            !budget.isEmpty,
+            let budgetOfTrip = Double(budget)
         else {
             return
         }
         
         for dayindex in 1...numOfDays {
-            let newday = Day(dayNum: dayindex)
+            let newday = Day(dayNum: dayindex, events: eventsArray)
             daysArray.append(newday)
             print("inserted: \(dayindex)")
         }
         
         print(daysArray[0].dayNum)
         
-        let trip = Trip(title: title, days: daysArray)
+        let trip = Trip(title: title, days: daysArray, budget: budgetOfTrip)
         tripStorage.insert(trip: trip)
         print("insert everything!")
         dismiss(animated: true, completion: {print("dismissed!")})

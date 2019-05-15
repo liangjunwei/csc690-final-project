@@ -11,9 +11,11 @@ import UIKit
 class Trip {
     let title: String
     var days: [Day] = []
+    let budget: Double
     
-    init(title: String, days: [Day]) {
+    init(title: String, days: [Day], budget: Double) {
         self.title = title
         self.days = days
+        self.budget = budget
     }
 }

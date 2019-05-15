@@ -35,6 +35,7 @@ class TripListTableViewController: UITableViewController {
             return UITableViewCell()
         }
         cell.textLabel?.text = tripStorage.tripArray[indexPath.row].title
+        cell.budgetLabel?.text = "Budget: $" + String(tripStorage.tripArray[indexPath.row].budget)
         return cell
     }
     

@@ -484,6 +484,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="akn-f2-TWp"/>
                     </view>
+                    <connections>
+                        <outlet property="costDetails" destination="jkP-5p-Nda" id="Nj1-gw-7MX"/>
+                        <outlet property="descriptionDetails" destination="SDW-V4-fNK" id="O1C-7T-d33"/>
+                        <outlet property="locationDetails" destination="P5i-hQ-UhY" id="G0e-x0-49f"/>
+                        <outlet property="timeDetails" destination="l1a-d0-LfO" id="BoD-ZQ-8Af"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNE-Ut-W7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

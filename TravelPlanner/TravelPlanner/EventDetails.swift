@@ -15,6 +15,8 @@ class EventDetails: UIViewController {
     @IBOutlet weak var timeDetails: UILabel!
     @IBOutlet weak var costDetails: UILabel!
     
+    var store = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionDetails.text = tripStorage.tripArray[tripIndex].days[dayIndex].events[eventIndex].description
@@ -25,6 +27,12 @@ class EventDetails: UIViewController {
     
     @IBAction func checkEvent(_ sender: Any) {
         tripStorage.tripArray[tripIndex].days[dayIndex].events[eventIndex].check = true
+        
+        let encoder = JSONEncoder()
+        
+        if let tripData = try? encoder.encode(tripStorage.tripArray) {
+            self.store.set(tripData, forKey: "trips")
+        }
     }
     
 }

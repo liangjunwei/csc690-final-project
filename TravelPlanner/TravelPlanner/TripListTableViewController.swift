@@ -9,7 +9,7 @@
 import UIKit
 
 //this index knows which trip
-var tripIndex = 0;
+var tripIndex = 0
 //make trip storage global
 var tripStorage: TripStoring = TripStorage.shared
 

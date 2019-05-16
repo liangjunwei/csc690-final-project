@@ -9,5 +9,5 @@
 import UIKit
 //this class can make custom cell
 class EventCell: UITableViewCell {
-    
+    @IBOutlet weak var eventCost: UILabel!
 }

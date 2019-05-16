@@ -11,6 +11,9 @@ import UIKit
 var eventIndex = 0
 
 class EventListTableViewController: UITableViewController {
+    
+    var store = UserDefaults.standard
+    
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -28,12 +31,27 @@ class EventListTableViewController: UITableViewController {
                 return UITableViewCell()
         }
         cell.textLabel?.text = tripStorage.tripArray[tripIndex].days[dayIndex].events[indexPath.row].description
+        cell.eventCost?.text = "Cost: $" + String(tripStorage.tripArray[tripIndex].days[dayIndex].events[indexPath.row].cost)
         
         if tripStorage.tripArray[tripIndex].days[dayIndex].events[indexPath.row].check {
             cell.textLabel?.textColor = UIColor.green
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            tripStorage.tripArray[tripIndex].days[dayIndex].events.remove(at: indexPath.row)
+        }
+        
+        let encoder = JSONEncoder()
+        
+        if let tripData = try? encoder.encode(tripStorage.tripArray) {
+            self.store.set(tripData, forKey: "trips")
+        }
+        
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

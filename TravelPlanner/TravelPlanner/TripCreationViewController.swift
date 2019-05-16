@@ -19,6 +19,7 @@ class TripCreationViewController: UIViewController {
     var tripStorage: TripStoring = TripStorage.shared
     var daysArray: [Day] = []
     var eventsArray: [Event] = []
+    var store = UserDefaults.standard
     
     @IBAction func createTrip(_ sender: Any) {
         guard
@@ -27,9 +28,11 @@ class TripCreationViewController: UIViewController {
             let days = tripDays.text,
             !days.isEmpty,
             let numOfDays = UInt32(days),
+            numOfDays >= 1,
             let budget = tripBudget.text,
             !budget.isEmpty,
-            let budgetOfTrip = Double(budget)
+            let budgetOfTrip = Double(budget),
+            budgetOfTrip >= 0
         else {
             return
         }
@@ -45,6 +48,13 @@ class TripCreationViewController: UIViewController {
         let trip = Trip(title: title, days: daysArray, budget: budgetOfTrip)
         tripStorage.insert(trip: trip)
         print("insert everything!")
+        
+        let encoder = JSONEncoder()
+        
+        if let tripData = try? encoder.encode(self.tripStorage.tripArray) {
+            self.store.set(tripData, forKey: "trips")
+        }
+        
         dismiss(animated: true, completion: {print("dismissed!")})
     }
     

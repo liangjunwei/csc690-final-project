@@ -17,10 +17,24 @@ var tripStorage: TripStoring = TripStorage.shared
 class TripListTableViewController: UITableViewController {
     
 //    var tripStorage: TripStoring = TripStorage.shared
+    var store = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let decoder = JSONDecoder()
+        
+        if
+            let storedTripsData = store.data(forKey: "trips"),
+            let trips = try? decoder.decode(Array<Trip>.self, from: storedTripsData)
+        {
+            tripStorage.tripArray = trips
         }
     }
     
@@ -43,6 +57,13 @@ class TripListTableViewController: UITableViewController {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             tripStorage.tripArray.remove(at: indexPath.row)
         }
+        
+        let encoder = JSONEncoder()
+        
+        if let tripData = try? encoder.encode(tripStorage.tripArray) {
+            self.store.set(tripData, forKey: "trips")
+        }
+        
         tableView.reloadData()
     }
     

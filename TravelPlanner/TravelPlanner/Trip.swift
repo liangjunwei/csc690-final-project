@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Trip {
+class Trip: Codable {
     let title: String
     var days: [Day] = []
     let budget: Double

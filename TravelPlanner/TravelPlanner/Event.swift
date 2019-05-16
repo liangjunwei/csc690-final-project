@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Event {
+class Event: Codable {
     let description: String
     let location: String
     let time: String

@@ -66,13 +66,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" id="9Rh-Bl-fQJ" customClass="DayCell" customModule="TravelPlanner" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" rowHeight="78" id="9Rh-Bl-fQJ" customClass="DayCell" customModule="TravelPlanner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Rh-Bl-fQJ" id="18Q-4G-b9f">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="77.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5c-DH-b33">
+                                            <rect key="frame" x="20" y="46" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="B5c-DH-b33" firstAttribute="leading" secondItem="18Q-4G-b9f" secondAttribute="leadingMargin" id="1fw-ET-Bzj"/>
+                                        <constraint firstItem="B5c-DH-b33" firstAttribute="bottom" secondItem="18Q-4G-b9f" secondAttribute="bottomMargin" id="BUH-mM-7cE"/>
+                                        <constraint firstItem="B5c-DH-b33" firstAttribute="top" secondItem="18Q-4G-b9f" secondAttribute="topMargin" constant="35" id="UKx-lE-5Ad"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="costOfTheDay" destination="B5c-DH-b33" id="c0Y-tE-axZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -86,7 +102,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xT7-pn-Agf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2951" y="-553"/>
+            <point key="canvasLocation" x="2950.7246376811595" y="-553.125"/>
         </scene>
         <!--Main App View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -382,6 +398,9 @@
                                         <constraint firstItem="GuS-Cl-e15" firstAttribute="top" secondItem="ij4-6S-otT" secondAttribute="topMargin" constant="35" id="eyd-iJ-04a"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="eventCost" destination="GuS-Cl-e15" id="npv-ZU-aB0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -11,5 +11,6 @@ import UIKit
 class TripCell: UITableViewCell {
     
     @IBOutlet weak var budgetLabel: UILabel!
+    @IBOutlet weak var totalCost: UILabel!
     
 }

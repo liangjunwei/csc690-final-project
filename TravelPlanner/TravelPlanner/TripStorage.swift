@@ -9,7 +9,7 @@
 import Foundation
 //this class store information about trips
 protocol TripStoring {
-    var tripArray: [Trip] { get }
+    var tripArray: [Trip] {get set}
     func insert(trip: Trip)
 }
 
@@ -19,7 +19,7 @@ class TripStorage: TripStoring {
     
     private init() { }
     
-    private(set) var tripArray: [Trip] = []
+    var tripArray: [Trip] = []
     
     func insert(trip: Trip) {
         tripArray.append(trip)

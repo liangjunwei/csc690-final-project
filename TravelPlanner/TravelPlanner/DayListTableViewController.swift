@@ -15,6 +15,7 @@ class DayListTableViewController: UITableViewController {
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //    }
+    var store = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
@@ -33,7 +34,38 @@ class DayListTableViewController: UITableViewController {
             return UITableViewCell()
         }
         cell.textLabel?.text = "Day " + String(tripStorage.tripArray[tripIndex].days[indexPath.row].dayNum)
+        
+        var totalCostOfTheDay = 0.0
+        
+        if tripStorage.tripArray[tripIndex].days[indexPath.row].events.count > 0 {
+            for eventArrayIndex in 0...(tripStorage.tripArray[tripIndex].days[indexPath.row].events.count - 1) {
+                totalCostOfTheDay += tripStorage.tripArray[tripIndex].days[indexPath.row].events[eventArrayIndex].cost
+            }
+        }
+        
+        cell.costOfTheDay?.text = "Cost: $" + String(totalCostOfTheDay)
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            tripStorage.tripArray[tripIndex].days.remove(at: indexPath.row)
+        }
+        
+        if indexPath.row <= (tripStorage.tripArray[tripIndex].days.count - 1) {
+            for newdayIndex in indexPath.row...(tripStorage.tripArray[tripIndex].days.count - 1) {
+                tripStorage.tripArray[tripIndex].days[newdayIndex].dayNum -= 1
+            }
+        }
+        
+        let encoder = JSONEncoder()
+        
+        if let tripData = try? encoder.encode(tripStorage.tripArray) {
+            self.store.set(tripData, forKey: "trips")
+        }
+        
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

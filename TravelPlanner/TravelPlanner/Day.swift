@@ -8,9 +8,12 @@
 
 import UIKit
 
-class Day {
-    let dayNum: UInt32
-    init(dayNum: UInt32) {
+class Day: Codable {
+    var dayNum: UInt32
+    var events: [Event] = []
+    
+    init(dayNum: UInt32, events: [Event]) {
         self.dayNum = dayNum
+        self.events = events
     }
 }

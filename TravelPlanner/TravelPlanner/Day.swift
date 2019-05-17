@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//day class
 class Day: Codable {
     var dayNum: UInt32
     var events: [Event] = []

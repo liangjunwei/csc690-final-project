@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//this class can make custom cell
+//this class make custom event cell
 class EventCell: UITableViewCell {
     @IBOutlet weak var eventCost: UILabel!
 }

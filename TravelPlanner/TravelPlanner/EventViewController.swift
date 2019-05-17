@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//this is the home page
+//this is the page where you select add or view events
 class EventViewController: UIViewController {
     
 }

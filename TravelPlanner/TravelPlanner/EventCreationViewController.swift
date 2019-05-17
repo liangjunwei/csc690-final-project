@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//read input from text field and create event when button is clicked
 class EventCreationViewController: UIViewController {
     
     @IBOutlet weak var eventDescription: UITextField!
@@ -18,6 +18,7 @@ class EventCreationViewController: UIViewController {
     var store = UserDefaults.standard
     
     @IBAction func createEvent(_ sender: Any) {
+        //check inputs
         guard
             let description = eventDescription.text,
             !description.isEmpty,
@@ -34,10 +35,12 @@ class EventCreationViewController: UIViewController {
         }
         print(costOfEvent)
         
+        //create new event
         let newEvent = Event(description: description, location: location, time: time, cost: costOfEvent, check: false)
         
         tripStorage.tripArray[tripIndex].days[dayIndex].events.append(newEvent)
         
+        //encode data after event creation
         let encoder = JSONEncoder()
         
         if let tripData = try? encoder.encode(tripStorage.tripArray) {

@@ -13,7 +13,7 @@ var tripIndex = 0
 //make trip storage global
 var tripStorage: TripStoring = TripStorage.shared
 
-//this class display all the trip titles in table view
+//this class display all the trip titles and budget of the trip in table view
 class TripListTableViewController: UITableViewController {
     
 //    var tripStorage: TripStoring = TripStorage.shared
@@ -28,6 +28,7 @@ class TripListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //decode the data
         let decoder = JSONDecoder()
         
         if
@@ -48,11 +49,14 @@ class TripListTableViewController: UITableViewController {
         else {
             return UITableViewCell()
         }
+        
+        //assign the trip title and budget of the trip to cell
         cell.textLabel?.text = tripStorage.tripArray[indexPath.row].title
         cell.budgetLabel?.text = "Budget: $" + String(tripStorage.tripArray[indexPath.row].budget)
         
         var totalCost = 0.0
         
+        //calculate the total cost
         if tripStorage.tripArray[indexPath.row].days.count >= 1 {
             for i in 0...(tripStorage.tripArray[indexPath.row].days.count - 1) {
                 if tripStorage.tripArray[indexPath.row].days[i].events.count >= 1 {
@@ -63,28 +67,32 @@ class TripListTableViewController: UITableViewController {
             }
         }
         
+        //total cost of the trip
         cell.totalCost?.text = "Total Cost: $" + String(totalCost)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //delete a trip
         if editingStyle == UITableViewCell.EditingStyle.delete {
             tripStorage.tripArray.remove(at: indexPath.row)
         }
         
+        //encode data after delete
         let encoder = JSONEncoder()
         
         if let tripData = try? encoder.encode(tripStorage.tripArray) {
             self.store.set(tripData, forKey: "trips")
         }
-        
+        //reload data
         tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("trip row: \(indexPath.row)")
         tripIndex = indexPath.row
+        //segue for trip cell
         performSegue(withIdentifier: "tripToDays", sender: self)
     }
 }

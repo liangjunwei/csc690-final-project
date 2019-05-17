@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//trip class
 class Trip: Codable {
     let title: String
     var days: [Day] = []

@@ -22,6 +22,7 @@ class TripCreationViewController: UIViewController {
     var store = UserDefaults.standard
     
     @IBAction func createTrip(_ sender: Any) {
+        //check inputs
         guard
             let title = tripTitle.text,
             !title.isEmpty,
@@ -37,6 +38,7 @@ class TripCreationViewController: UIViewController {
             return
         }
         
+        //create the day array
         for dayindex in 1...numOfDays {
             let newday = Day(dayNum: dayindex, events: eventsArray)
             daysArray.append(newday)
@@ -45,10 +47,12 @@ class TripCreationViewController: UIViewController {
         
         print(daysArray[0].dayNum)
         
+        //create the trip
         let trip = Trip(title: title, days: daysArray, budget: budgetOfTrip)
         tripStorage.insert(trip: trip)
         print("insert everything!")
         
+        //encode the data after trip creation
         let encoder = JSONEncoder()
         
         if let tripData = try? encoder.encode(self.tripStorage.tripArray) {

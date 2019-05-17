@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//this class can make custom cell
+//this class make custom day cell
 class DayCell: UITableViewCell {
     @IBOutlet weak var costOfTheDay: UILabel!
     

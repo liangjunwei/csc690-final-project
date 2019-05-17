@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//this class can make custom cell
+//this class make custom trip cell
 class TripCell: UITableViewCell {
     
     @IBOutlet weak var budgetLabel: UILabel!
